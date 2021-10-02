@@ -1,4 +1,40 @@
 ## 접근방법
+첫 번째 실패 코드:
+<pre><code>
+N = int(input())
+A = list(map(int,input()))
+B = list(map(int,input()))
+count = 0
+i = 0
+cycle = 0
+
+def function(Array,x):   
+    if(x == 0):
+        Array[x] = 1 - Array[x]
+        Array[x+1] = 1 - Array[x+1]
+    elif(x == N-1):
+        Array[x] = 1 - Array[x]
+        Array[x-1] = 1 - Array[x-1]
+    else:
+        Array[x] = 1 - Array[x]
+        Array[x-1] = 1 - Array[x-1]
+        Array[x+1] = 1 - Array[x+1]
+    return Array
+
+while (A != B):
+    if (A[i] != B[i]):
+        A = function(A,i)
+        count += 1
+    i += 1
+
+    if (i > N-1):
+        i = 0
+        cycle += 1
+        if(cycle > 1):
+            print(-1)
+            exit()
+print(count)
+</code></pre>
 
 
 
