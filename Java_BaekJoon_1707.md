@@ -30,7 +30,7 @@ public class Main{
 				list = br.readLine().split(" ");
 				graph[Integer.parseInt(list[0])] = Integer.parseInt(list[1]);
 			}
-			
+			 
 			
 		}
 		}
