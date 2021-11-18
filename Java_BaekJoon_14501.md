@@ -14,30 +14,23 @@ public class Main{
 	public static void main(String[] args) throws Exception{
 		br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
-		consulting = new int[N+1][2];
-		for(int i = 1; i < N+1; i++) {
+		consulting = new int[N][2];
+		for(int i = 0; i < N; i++) {
 			str = br.readLine().split(" ");
 			consulting[i][0] = Integer.parseInt(str[0]);
 			consulting[i][1] = Integer.parseInt(str[1]);
 		}
 		
 		dp = new int[N+1];
-		int dp_value = 0, date, max = 0;
 		
-		for(int i = 1; i < N+1; i++) {
-				date = i;
-				while(date + consulting[date][0] <= N+1) {
-					dp_value += consulting[date][1];
-					date += consulting[date][0];
-					if(date == N+1) {
-						break;
-					}
+		
+		for(int i = 0; i < N; i++) {
+				if(i + consulting[i][0] <= N) {
+					dp[i + consulting[i][0]] = Math.max(dp[i + consulting[i][0]], dp[i] + consulting[i][1]);
 				}
-				dp[i] = dp_value;
-				max = Math.max(max, dp_value);
-				dp_value = 0;
+				dp[i+1] = Math.max(dp[i+1], dp[i]);
 			}
-		System.out.println(max);
+		System.out.println(dp[N]);
 	}
 } 
 </code></pre>
