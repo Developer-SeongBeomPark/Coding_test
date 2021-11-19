@@ -37,3 +37,41 @@ public class Main{
 
 --> 메모리 초과.
 
+
+
+## 정답 코드
+<pre><code>
+import java.io.*;
+import java.util.*;
+
+
+public class Main{
+	static BufferedReader br;
+	static String input;
+	static int n;
+	static List<Integer> answer_stack;
+	public static void main(String[] args) throws Exception {
+		br = new BufferedReader(new InputStreamReader(System.in));
+		answer_stack = new ArrayList<Integer>();
+		while((input = br.readLine()) != null) {
+			n = Integer.parseInt(input);
+			int cnt = 1, tmp = 1;
+			
+			while(true) {
+				if(tmp % n == 0) break;
+				cnt++;
+				tmp = (tmp*10 + 1) % n;
+			}
+			answer_stack.add(cnt);
+		}
+		br.close();
+		
+		for(int i = 0; i < answer_stack.size(); i++) {
+			System.out.println(answer_stack.get(i));
+		}
+	}
+} 
+</code></pre>
+
+나머지에 대한 수학 개념이 있어야 풀 수 있는 문제였다.
+https://stage-diary.tistory.com/697
