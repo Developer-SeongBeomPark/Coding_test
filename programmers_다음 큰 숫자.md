@@ -26,3 +26,32 @@ class Solution {
     }
 }
 ```
+
+
+'''
+import java.lang.Integer;
+
+class TryHelloWorld
+{
+    public int nextBigNumber(int n)
+    {
+      int a = Integer.bitCount(n);
+      int compare = n+1;
+
+      while(true) {
+        if(Integer.bitCount(compare)==a)
+          break;
+        compare++;
+      }
+
+      return compare;
+    }
+
+    public static void main(String[] args)
+    {
+        TryHelloWorld test = new TryHelloWorld();
+        int n = 78;
+        System.out.println(test.nextBigNumber(n));
+    }
+}
+'''
